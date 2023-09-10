@@ -4,6 +4,7 @@
   "packageManager": "yarn@4.0.0-rc.44",
   "scripts": {
     "start:production": "tsc && node dist/app.js",
+    "devop": "node dist/app.js",
     "prod": "cross-env NODE_ENV=production nodemon dist/app.js",
     "dev": "cross-env NODE_ENV=development nodemon dist/app.js",
     "build": "tsc -w"
