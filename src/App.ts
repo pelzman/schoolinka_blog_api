@@ -19,12 +19,13 @@ const {PORT} = config
 dotenv.config()
 
 //to parse json body
-app.use(bodyParser.json())
+
 
 
 app.use(logger("dev"))
 app.use(express.json())
 app.use(cookieParser())
+app.use(bodyParser.json())
 app.use(express.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, '../public')));
 
@@ -35,9 +36,10 @@ db.sync({}).then( ()=>{
 })
 app.use("/users", UserRoutes)
 app.use("/blogs", BlogRoutes)
+const BUILDPORT = PORT
 
-app.listen(PORT, ()=>{
-    console.log(`server running on port ${PORT}`)
+app.listen( BUILDPORT, ()=>{
+    console.log(`server running on port ${ BUILDPORT}`)
 })
 
 export default app;

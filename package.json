@@ -3,11 +3,11 @@
   "license": "MIT",
   "packageManager": "yarn@4.0.0-rc.44",
   "scripts": {
-   
-    "start": "node dist/app.js",    
+    
+    "start": "node dist/app.js",
     "prod": "cross-env NODE_ENV=production nodemon dist/app.js",
     "dev": "cross-env NODE_ENV=development nodemon dist/app.js",
-    "build": "tsc "
+    "build": "tsc -w "
   },
   "dependencies": {
     "@types/node": "^20.5.9",

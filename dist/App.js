@@ -17,10 +17,10 @@ const app = (0, express_1.default)();
 const { PORT } = dbconfig_1.default;
 dotenv_1.default.config();
 //to parse json body
-app.use(body_parser_1.default.json());
 app.use((0, morgan_1.default)("dev"));
 app.use(express_1.default.json());
 app.use((0, cookie_parser_1.default)());
+app.use(body_parser_1.default.json());
 app.use(express_1.default.urlencoded({ extended: false }));
 app.use(express_1.default.static(path_1.default.join(__dirname, '../public')));
 config_1.db.sync({}).then(() => {
@@ -30,7 +30,8 @@ config_1.db.sync({}).then(() => {
 });
 app.use("/users", userRoutes_1.default);
 app.use("/blogs", blogRoutes_1.default);
-app.listen(PORT, () => {
-    console.log(`server running on port ${PORT}`);
+const BUILDPORT = PORT;
+app.listen(BUILDPORT, () => {
+    console.log(`server running on port ${BUILDPORT}`);
 });
 exports.default = app;
