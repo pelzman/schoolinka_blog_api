@@ -1,6 +1,6 @@
 {
   "name": "schoolinka_blog_api",
- 
+  "license": "MIT",
   "packageManager": "yarn@4.0.0-rc.44",
   "scripts": {
     "start:production": "tsc && node dist/app.js",
