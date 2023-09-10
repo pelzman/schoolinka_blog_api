@@ -7,7 +7,7 @@
     "devop": "node dist/app.js",
     "prod": "cross-env NODE_ENV=production nodemon dist/app.js",
     "dev": "cross-env NODE_ENV=development nodemon dist/app.js",
-    "build": "tsc -w"
+    "build": "tsc "
   },
   "dependencies": {
     "@types/node": "^20.5.9",
