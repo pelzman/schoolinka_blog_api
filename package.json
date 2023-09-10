@@ -1,5 +1,6 @@
 {
   "name": "schoolinka_blog_api",
+ 
   "packageManager": "yarn@4.0.0-rc.44",
   "scripts": {
     "start:production": "tsc && node dist/app.js",
@@ -10,6 +11,7 @@
   "dependencies": {
     "@types/node": "^20.5.9",
     "bcrypt": "^5.1.1",
+    "cloudinary": "^1.40.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
@@ -18,10 +20,14 @@
     "jsonwebtoken": "^9.0.2",
     "lodash.merge": "^4.6.2",
     "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "multer-storage-cloudinary": "^4.0.0",
     "nodemon": "^3.0.1",
     "pg": "^8.11.3",
+    "pg-hstore": "^2.3.4",
     "postgres": "^3.3.5",
     "sequelize": "^6.32.1",
+    "sequelize-cli": "^6.6.1",
     "typescript": "^5.2.2",
     "uuid": "^9.0.0",
     "zod": "^3.22.2"
@@ -34,6 +40,7 @@
     "@types/jsonwebtoken": "^9.0.2",
     "@types/lodash.merge": "^4.6.7",
     "@types/morgan": "^1.9.5",
+    "@types/multer": "^1.4.7",
     "@types/sequelize": "^4.28.15",
     "@types/uuid": "^9.0.3",
     "ts-node": "^10.9.1"
