@@ -6,6 +6,7 @@ const authorization_1 = require("../middlewares/authorization");
 // import { upload } from "../middlewares/uploads";
 const router = (0, express_1.Router)();
 router.get("/posts", blogController_1.getAllPost);
+router.get("/post/:id", blogController_1.getSinglePost);
 router.post('/add', authorization_1.auth, blogController_1.createPost);
 router.put('/update', authorization_1.auth, blogController_1.updatePost);
 router.delete('/delete', authorization_1.auth, blogController_1.deleteSinglePost);

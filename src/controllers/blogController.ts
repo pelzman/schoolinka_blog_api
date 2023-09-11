@@ -69,6 +69,34 @@ export const getAllPost = async (
     });
   }
 };
+
+export const getSinglePost = async(
+  req: Request,
+  res: Response,
+  next: NextFunction
+
+)=>{
+  try {
+    const  postId = req.params.id
+  
+    const post = await blogInstance.findOne({where:{ id: postId}} ) ;
+    if (!post) {
+      return res.status(400).send({
+        message: `user with id ${postId} does not exsist `,
+      });    
+    }
+    return res.status(200).send({
+        message: "post fetched successfully",
+        status: 200,
+        data: post,
+      });
+  } catch (error) {
+    console.log(error)
+    return res.status(500).json({
+      message: "Intenal server error",
+    });
+  }
+}
 //creating posts
 
 export const createPost = async (

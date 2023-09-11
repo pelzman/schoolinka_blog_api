@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteAllPosts = exports.deleteSinglePost = exports.updatePost = exports.addComments = exports.createPost = exports.getAllPost = void 0;
+exports.deleteAllPosts = exports.deleteSinglePost = exports.updatePost = exports.addComments = exports.createPost = exports.getSinglePost = exports.getAllPost = void 0;
 const blog_1 = require("../models/blog");
 const validator_1 = require("../utils/validator");
 const uuid_1 = require("uuid");
@@ -66,6 +66,29 @@ const getAllPost = (req, res, next) => __awaiter(void 0, void 0, void 0, functio
     }
 });
 exports.getAllPost = getAllPost;
+const getSinglePost = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const postId = req.params.id;
+        const post = yield blog_1.blogInstance.findOne({ where: { id: postId } });
+        if (!post) {
+            return res.status(400).send({
+                message: `user with id ${postId} does not exsist `,
+            });
+        }
+        return res.status(200).send({
+            message: "post fetched successfully",
+            status: 200,
+            data: post,
+        });
+    }
+    catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            message: "Intenal server error",
+        });
+    }
+});
+exports.getSinglePost = getSinglePost;
 //creating posts
 const createPost = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
